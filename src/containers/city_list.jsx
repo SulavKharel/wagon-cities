@@ -5,7 +5,7 @@ import City from '../containers/city';
 
 class CityList extends Component {
   renderList() {
-    return this.props.citites.map((city) => {
+    return this.props.cities.map((city) => {
       return (
         <City key={city.name} city={city} />
       );
@@ -14,17 +14,17 @@ class CityList extends Component {
 
   render() {
     return (
-      <ul className="list-group-item">
-        {this.renderList}
+      <ul className="list-group cities">
+        {this.renderList()}
       </ul>
     );
   }
 }
 
-function MapStateToProps(state) {
+function mapStateToProps(state) {
   return {
     cities: state.cities
   };
 }
 
-export default connect(MapStateToProps)(CityList);
+export default connect(mapStateToProps)(CityList);
